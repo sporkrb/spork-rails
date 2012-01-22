@@ -51,6 +51,20 @@ Finally, run spork.  A spec DRb server will be running!
 
   spork
 
+== Running tests
+
+=== Specs
+
+  bundle exec rspec spec
+
+=== Features (cucumber)
+
+  bundle exec cucumber features
+
+To run against one a different gemset (see features/gemsets), specifying a name like follows:
+
+  GEMSET=rails3.2 bundle exec cucumber features/
+
 == TODO
 
 * Create spork-rails version to work agains Rails 2.x.
