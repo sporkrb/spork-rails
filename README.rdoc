@@ -51,6 +51,11 @@ Finally, run spork.  A spec DRb server will be running!
 
   spork
 
+== TODO
+
+* Create spork-rails version to work agains Rails 2.x.
+* Run tests with `rake`
+
 == See also
 
 See https://github.com/sporkrb/spork for more instructions.
