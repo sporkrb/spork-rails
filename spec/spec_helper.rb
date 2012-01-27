@@ -1,6 +1,5 @@
 require 'rspec'
 require 'spork'
-require 'spork/app_framework'
 
 SPEC_TMP_DIR = File.expand_path('tmp', File.dirname(__FILE__))
 
