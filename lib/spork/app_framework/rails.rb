@@ -42,7 +42,7 @@ class Spork::AppFramework::Rails < Spork::AppFramework
 
   def preload_rails
     if deprecated_version && (not /^3/.match(deprecated_version))
-      puts "This version of spork only supports Rails 3.0. To use spork with rails 2.3.x, downgrade to spork 0.8.x."
+      puts "This version of spork only supports Rails 3. To use spork with rails 2.3.x, downgrade to spork 0.8.x."
       exit 1
     end
     require application_file
