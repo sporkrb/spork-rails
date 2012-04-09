@@ -61,6 +61,9 @@ Finally, run spork.  A spec DRb server will be running!
 
   bundle exec cucumber features
 
+(This assumes that you ran the cucumber-rails generator with the -\-spork option. If not, you'll
+need to add the -\-drb option to the appropriate profiles in cucumber.yml)
+
 To run against one a different gemset (see features/gemsets), specifying a name like follows:
 
   GEMSET=rails3.2 bundle exec cucumber features/
