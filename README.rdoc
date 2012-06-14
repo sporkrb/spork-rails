@@ -55,7 +55,9 @@ Finally, run spork.  A spec DRb server will be running!
 
 === Specs
 
-  bundle exec rspec spec
+  bundle exec rspec --drb spec
+
+You can remove the requirement to use the -\-drb argument each time by adding it to your .rspec file.
 
 === Features (cucumber)
 
