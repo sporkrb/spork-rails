@@ -41,7 +41,7 @@ Cucumber:
 TestUnit:
 
   (Install the spork-testunit gem)
-  spork test_unit --bootstrap
+  spork testunit --bootstrap
 
 (If you don't specifiy a test framework, spork will find one and pick it.)
 
