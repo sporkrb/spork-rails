@@ -6,6 +6,7 @@ class Spork::AppFramework::Rails < Spork::AppFramework
     ENV["RAILS_ENV"] ||= 'test'
     preload_rails
     yield
+    ActiveRecord::Base.remove_connection if defined?(ActiveRecord)
   end
 
   def entry_point
