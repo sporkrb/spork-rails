@@ -1,8 +1,8 @@
 source :gemcutter
 gemspec
-# rails is required by the gemspec
 
-gem 'cucumber', '~> 1.0.0'
+gem 'rails', github: 'rails/rails'
+gem 'cucumber', '~> 1.2.1'
 gem 'rspec', '~> 2.8'
 gem 'rake'
 gem "spork-rails", :path => "./"
