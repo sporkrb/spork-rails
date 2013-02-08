@@ -47,9 +47,15 @@ TestUnit:
 
 Follow the instructions.
 
-Finally, run spork.  A spec DRb server will be running!
+Finally, run spork for your tests, e.g.
 
-  spork
+  spork rspec
+
+or 
+
+  spork cucumber
+
+A DRb server will be running!
 
 == Running tests
 
