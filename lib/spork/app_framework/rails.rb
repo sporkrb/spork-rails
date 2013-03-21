@@ -65,7 +65,11 @@ class Spork::AppFramework::Rails < Spork::AppFramework
           filename = arg + "_helper"
           unless ::ActiveSupport::Dependencies.search_for_file(filename)
             # this error message must raise in the format such that LoadError#path returns the filename
-            raise LoadError.new("Missing helper file helpers/%s.rb" % filename)
+            # but in case of Rails4 and Ruby2.0, LoadError#path does not work as intended because of already exists.
+            # A simple solution to solve this problem is to set a missing file name to @path.
+            e = LoadError.new("Missing helper file helpers/%s.rb" % filename)
+            e.instance_variable_set("@path", "helpers/%s.rb" % filename)
+            raise e
           end
         end
 
