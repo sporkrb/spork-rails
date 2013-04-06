@@ -8,19 +8,7 @@ Versions correspond to the latest Rails minor release. Gem is backwards compatib
 
 * spork-rails 3.2.0: Rails 3.0.0 - 3.2.x
 
-= Usage:
-
-Add to your Gemfile:
-
-  gem "spork-rails"
-
-  # (Since spork-rails depends on spork, it is not necessary to put both spork and spork-rails in your Gemfile)
-
-== INSTALL:
-
-NOTICE: If using spork with rails, use the spork-rails gem.
-
-=== bundler:
+== Install
 
 Add to your Gemfile:
 
@@ -30,7 +18,9 @@ Add to your Gemfile:
 
 From a terminal, change to your project directory.
 
-Then, bootstrap your test helper file. If running rspec,
+Then, bootstrap your test helper file;
+
+RSpec:
 
   spork rspec --bootstrap
 
@@ -40,7 +30,7 @@ Cucumber:
 
 TestUnit:
 
-  (Install the spork-testunit gem)
+  # Install the spork-testunit gem
   spork test_unit --bootstrap
 
 (If you don't specifiy a test framework, spork will find one and pick it.)
@@ -61,13 +51,13 @@ Finally, run spork.  A spec DRb server will be running!
 
   bundle exec cucumber features
 
-To run against one a different gemset (see features/gemsets), specifying a name like follows:
+To run against one a different gemset (see features/gemsets), specify a name like follows:
 
   GEMSET=rails3.2 bundle exec cucumber features/
 
 == TODO
 
-* Create spork-rails version to work agains Rails 2.x.
+* Create spork-rails version to work against Rails 2.x.
 * Run tests with `rake`
 
 == See also
