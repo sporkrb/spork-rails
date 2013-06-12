@@ -23,6 +23,6 @@ Gem::Specification.new do |s|
   s.summary = %q{spork}
   s.test_files = Dir["features/**/*"] + Dir["spec/**/*"]
 
-  s.add_dependency "spork", ">= 1.0rc0"
+  s.add_dependency "spork", ">= 1.0.0rc0"
   s.add_dependency "rails", ">= 3.0.0", "< 3.3.0"
 end
