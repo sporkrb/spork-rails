@@ -1,1 +1,5 @@
 tmp
+.bundle
+tags
+vendor
+.ruby-version
