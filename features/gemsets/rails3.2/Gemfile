@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source :gemcutter
 gem 'sqlite3', '~> 1.3.4'
 gem 'cucumber', '~> 1.0.6'
 # gem 'cucumber-rails', '~> 1.0.6'
@@ -6,10 +6,10 @@ gem "rspec", "2.8.0"
 gem 'rspec-rails'
 gem 'rails', '~> 3.2.0'
 
-if RUBY_VERSION =~ /^2\.0|^1\.9/
-  gem 'debugger'
+if RUBY_VERSION =~ /^1\.9/
+  gem 'ruby-debug19'
 else
-  gem 'ruby-debug'
+  gem 'ruby-debug', '>= 0.10.3'
 end
-gem 'spork', :path => "../../../../spork"
+gem 'spork', "~> 1.0.0rc0"
 gem 'spork-rails', :path => "../../../"

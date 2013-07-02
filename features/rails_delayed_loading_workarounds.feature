@@ -44,7 +44,6 @@ Feature: Rails Delayed Work arounds
     Given a file named "app/controllers/users_controller.rb" with:
       """
       class UsersController < ApplicationController
-        config.relative_url_root = ""
         $loaded_stuff << 'UsersController'
         def index
           @users = []
