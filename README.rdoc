@@ -1,4 +1,4 @@
-= Spork Rails
+= Spork Rails {<img src="https://travis-ci.org/sporkrb/spork-rails.png" alt="Build Status" />}[https://travis-ci.org/sporkrb/spork-rails]
 
 This plugin is for running spork in Ruby-on-Rails applications.
 
