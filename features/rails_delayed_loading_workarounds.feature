@@ -1,3 +1,4 @@
+@rails4
 Feature: Rails Delayed Work arounds
   To allow a rails developer to update as many parts of his application as possible without needing to restart Spork
   Spork automatically tells rails to delay loading certain parts of the application until after the fork occurs
@@ -20,7 +21,7 @@ Feature: Rails Delayed Work arounds
       Spork.each_run do
       end
       """
-    And the application has a model, observer, route, and application helper
+    And the application has a model, route, and application helper
 
     Given the following code appears in "config/routes.rb" after /routes\.draw/:
       """

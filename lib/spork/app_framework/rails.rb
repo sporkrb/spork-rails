@@ -54,7 +54,7 @@ class Spork::AppFramework::Rails < Spork::AppFramework
       end
     end
     # Spork.trap_method(::AbstractController::Helpers::ClassMethods, :helper)
-    Spork.trap_method(::ActiveModel::Observing::ClassMethods, :instantiate_observers)
+    Spork.trap_method(::ActiveModel::Observing::ClassMethods, :instantiate_observers) if defined?(ActiveModel::Observing)
     Spork.each_run { ActiveRecord::Base.establish_connection rescue nil } if Object.const_defined?(:ActiveRecord)
 
 
@@ -65,7 +65,11 @@ class Spork::AppFramework::Rails < Spork::AppFramework
           filename = arg + "_helper"
           unless ::ActiveSupport::Dependencies.search_for_file(filename)
             # this error message must raise in the format such that LoadError#path returns the filename
-            raise LoadError.new("Missing helper file helpers/%s.rb" % filename)
+            e = LoadError.new("Missing helper file helpers/%s.rb" % filename)
+            if e.respond_to?(:path)
+              e.instance_variable_set("@path", "helpers/%s.rb" % filename)
+            end
+            raise e
           end
         end
 

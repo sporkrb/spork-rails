@@ -66,3 +66,38 @@ Given "the application has a model, observer, route, and application helper" do
     end
     """
 end
+
+Given "the application has a model, route, and application helper" do
+  Given 'a file named "app/models/user.rb" with:',
+    """
+    class User < ActiveRecord::Base
+      $loaded_stuff << 'User'
+    end
+    """
+  Given 'a file named "app/helpers/application_helper.rb" with:',
+    """
+    module ApplicationHelper
+      $loaded_stuff << 'ApplicationHelper'
+    end
+    """
+  Given 'the following code appears in "config/routes.rb" after /^end/:',
+    """
+      $loaded_stuff << 'config/routes.rb'
+    """
+  Given 'a file named "config/initializers/initialize_loaded_stuff.rb" with:',
+    """
+    $loaded_stuff ||= []
+    """
+  Given 'a file named "config/initializers/log_establish_connection_calls.rb" with:',
+    """
+    class ActiveRecord::Base
+      class << self
+        def establish_connection_with_load_logging(*args)
+          $loaded_stuff << 'ActiveRecord::Base.establish_connection'
+          establish_connection_without_load_logging(*args)
+        end
+        alias_method_chain :establish_connection, :load_logging
+      end
+    end
+    """
+end

@@ -1,3 +1,4 @@
+@rails4
 Feature: Cucumber integration with rails
   As a developer using cucumber and rails
   I want to use Spork with Cucumber
@@ -5,7 +6,7 @@ Feature: Cucumber integration with rails
 
   Background: Sporked env.rb
     Given I am in a fresh rails project named "test_rails_project"
-    And the application has a model, observer, route, and application helper
+    And the application has a model, route, and application helper
     And a file named "features/support/env.rb" with:
       """
       require 'rubygems'
@@ -61,15 +62,11 @@ Feature: Cucumber integration with rails
       """
       Then "it should work" do
         (Rails.respond_to?(:logger) ? Rails.logger : ActionController::Base.logger).info "hey there"
-        $loaded_stuff.should include('ActiveRecord::Base.establish_connection')
-        $loaded_stuff.should include('User')
-        $loaded_stuff.should include('UserObserver')
         $loaded_stuff.should include('ApplicationHelper')
         $loaded_stuff.should include('config/routes.rb')
         $loaded_stuff.should include('features/support/cucumber_rails_helper.rb')
         $loaded_stuff.should include('each_run block')
         $loaded_stuff.should include('prefork block')
-        puts "It worked!"
       end
 
       Alors /ca marche/ do
@@ -77,8 +74,6 @@ Feature: Cucumber integration with rails
       """
     Scenario: Analyzing files were preloaded
       When I run spork --diagnose
-      Then the output should not contain "user_observer.rb"
-      Then the output should not contain "user.rb"
       Then the output should not contain "app/controllers/application.rb"
       Then the output should not contain "app/controllers/application_controller.rb"
       Then the output should not contain "app/controllers/application_helper.rb"
@@ -92,7 +87,7 @@ Feature: Cucumber integration with rails
         WARNING: No DRb server is running. Running features locally
         """
 
-    Scenario: Running spork with a rails app and observers
+    Scenario: Running spork with a rails app
       When I fire up a spork instance with "spork cucumber"
       And I run cucumber --drb features
       Then the file "log/test.log" should include "hey there"
@@ -101,3 +96,4 @@ Feature: Cucumber integration with rails
       When I fire up a spork instance with "spork cucumber -p 9000"
       And I run cucumber --drb --port 9000 features
       Then the file "log/test.log" should include "hey there"
+
