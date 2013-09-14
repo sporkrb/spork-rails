@@ -12,5 +12,5 @@ if RUBY_VERSION =~ /^2\.0|^1\.9/
 else
   gem 'ruby-debug'
 end
-gem 'spork', :github => 'sporkrb/spork'
+gem 'spork', '>= 1.0rc0'
 gem 'spork-rails', :path => "../../../"

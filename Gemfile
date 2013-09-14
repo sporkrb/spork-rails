@@ -5,7 +5,7 @@ gemspec
 gem 'cucumber', '~>1.3.2'
 gem 'rspec', '~>2.13.0'
 gem 'rake'
-gem 'spork', :github => 'sporkrb/spork'
+gem 'spork', '>= 1.0rc0'
 gem "spork-rails", :path => "./"
 
 if RUBY_VERSION =~ /^2\.0|^1\.9/

@@ -6,7 +6,7 @@ This plugin is for running spork in Ruby-on-Rails applications.
 
 Versions correspond to the latest Rails minor release. Gem is backwards compatible with rails as far as it makes sense to.
 
-* spork-rails 3.2.0: Rails 3.0.0 - 3.2.x
+* spork-rails 4.0.0: Rails 3.0.0 - 4.0.0
 
 = Usage:
 
